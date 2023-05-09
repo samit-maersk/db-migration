@@ -1,0 +1,19 @@
+databaseChangeLog:
+- changeSet:
+    id: create_table_accounts
+    author: dbmigrator
+    sqlFile: 
+      path: ./schema/01_table_accounts_UP.sql
+      relativeToChangelogFile: true
+    rollback:
+      sqlFile: 
+        path: ./schema/01_table_accounts_DOWN.sql
+- changeSet:
+    id: create_table_users
+    author: dbmigrator
+    sqlFile: 
+      path: ./schema/02_table_users_UP.sql
+      relativeToChangelogFile: true
+    rollback:
+      sqlFile: 
+        path: ./schema/02_table_users_DOWN.sql

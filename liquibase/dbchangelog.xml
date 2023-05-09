@@ -18,17 +18,21 @@
     </changeSet>
 
     <changeSet id="create_table_accounts" author="samit" context="prod, qa">
-        <sqlFile path="schema/01_table_accounts.sql" relativeToChangelogFile="true"/>
+        <sqlFile path="schema/01_table_accounts_UP.sql" relativeToChangelogFile="true"/>
         <rollback>
-            <dropTable tableName="accounts"/>
+            <sqlFile path="schema/01_table_accounts_DOWN.sql" relativeToChangelogFile="true" />
         </rollback>
     </changeSet>
 
     <changeSet id="create_table_users" author="samit" context="prod, qa">
-        <sqlFile path="schema/02_table_users.sql" relativeToChangelogFile="true"/>
+        <sqlFile path="schema/02_table_users_UP.sql" relativeToChangelogFile="true"/>
         <rollback>
             <dropTable tableName="users"/>
         </rollback>
+
+        <!--rollback>
+            <sqlFile path="schema/02_table_users_DOWN.sql" relativeToChangelogFile="true" />
+        </rollback-->
     </changeSet>
 
     <changeSet id="create_account_types" author="samit" context="prod, qa">
